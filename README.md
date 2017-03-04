@@ -3,19 +3,19 @@ Basic project using Node v7.1.1, knexjs, bookshelfjs to demonstrate a basic Koa2
 
 Project created using WebStorm 2016.3.2
 
-#### Install
-
-Install node dependencies using the command
-
+#### Install & Run
 ```
-  nvm use 7.1.1
-  npm install
+  nvm use 7.1.1  // use node v7.1.1
+  npm install    // install dependencies
+  node app       // run with
 ```
 
-#### Run server
-
+#### Knex
 ```
-  node app
+  npm install -g knex         // install knex globally
+  npm install sqlite3 --save  // install knex globally
+  knex migrate:make user      // make a migration
+  knex migrate:latest --env development
 ```
 
 #### Notes

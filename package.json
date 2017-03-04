@@ -11,7 +11,9 @@
     "outdated": "npm outdated"
   },
   "dependencies": {
-    "koa": "2.0.1"
+    "knex": "^0.12.7",
+    "koa": "2.0.1",
+    "sqlite3": "^3.1.8"
   },
   "devDependencies": {
     "nodemon": "1.11.0"

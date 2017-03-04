@@ -19,5 +19,5 @@ Project created using WebStorm 2016.3.2
 ```
 
 #### Notes
- - Ensure webstorm (or whatever editor you uses) uses the Javascript language version of 'ECMAScript 6'
+ - Ensure webstorm (or whatever editor you use) uses the Javascript language version of 'ECMAScript 6' to avoid lint errors
  - Use [nvm](https://github.com/creationix/nvm) so you can switch between node versions easily.

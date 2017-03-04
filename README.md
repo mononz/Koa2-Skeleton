@@ -38,6 +38,12 @@ Use pm2 on production to manage the server. Launch with the yaml file. Make sure
   knex migrate:latest --env development  
 ```
 
+#### Postman
+
+Import the json dump from `/Koa2-Skeleton.postman_collection.json`. into postman to get testing. 
+
+Don't use it? You should. Get it [here](https://www.getpostman.com/). 
+
 #### Notes
  - Ensure webstorm (or whatever editor you use) uses the Javascript language version of 'ECMAScript 6' to avoid lint errors
  - Use [nvm](https://github.com/creationix/nvm) so you can switch between node versions easily.

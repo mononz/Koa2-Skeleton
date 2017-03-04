@@ -2,6 +2,8 @@ const Router  = require('koa-router');
 const router  = new Router({ prefix: '/user' });
 
 const User    = require('../models/user');
+const Context = require('../util/context');
+const Error   = require('../util/error_handler');
 
 
 /**
@@ -13,9 +15,32 @@ const User    = require('../models/user');
  * @apiError (Status Codes) 204 - Missing params
  *
  */
-router.post('/', async ctx => {
-  ctx.status = 200;
-  ctx.body   = 'User_Create';
+router.post('/', async (ctx, next) => {
+
+  if (!Context.requestBodyContainsAll(ctx, ['first_name', 'last_name', 'email'])) {
+    Error.missingParameters(ctx);
+    return next();
+  }
+
+  let json = {
+    first_name: ctx.request.body.first_name,
+    last_name:  ctx.request.body.last_name,
+    email:      ctx.request.body.email
+  };
+
+  await User.forge(json).save()
+    .then(function (result) {
+      ctx.status = 200;
+      ctx.body = {
+        success: true,
+        user: {
+          user_id: result.attributes.user_id
+        }
+      };
+    })
+    .catch(function (error) {
+      Error.unknown(ctx, error)
+    });
 });
 
 /**
@@ -28,6 +53,7 @@ router.post('/', async ctx => {
  *
  */
 router.get('/:id', ctx => {
+
   ctx.status = 200;
   ctx.body   = 'User_Read';
 });

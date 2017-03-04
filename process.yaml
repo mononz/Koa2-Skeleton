@@ -1,0 +1,10 @@
+apps:
+  - script : app.js
+    name : Koa2-Skeleteon
+    instances : 0
+    exec_mode : cluster
+    interpreter : /home/username/.nvm/versions/node/v7.7.1/bin/node
+    env :
+      NODE_ENV: production
+      PORT: 3000
+      TZ: UTC

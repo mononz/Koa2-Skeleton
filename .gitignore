@@ -1,6 +1,11 @@
 # idea
 .idea
 
+# knexfile
+knexfile.js
+
+# pm2
+
 # databases
 *.sqlite3
 

@@ -13,8 +13,10 @@ app.use(logger());
 
 app.use(routeUser.routes());
 
-app.listen(3000, () =>
-  console.log('Koa2 server running on localhost:3000')  // ToDo Add env var here
+const PORT = process.env.PORT || '3001';
+
+app.listen(PORT, () =>
+  console.log('Koa2 server running on localhost:' + PORT)
 );
 
 module.exports.default = app;

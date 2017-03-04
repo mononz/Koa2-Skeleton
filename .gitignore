@@ -1,6 +1,9 @@
 # idea
 .idea
 
+# databases
+*.sqlite3
+
 # Logs
 logs
 *.log

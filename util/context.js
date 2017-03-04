@@ -1,17 +1,22 @@
 
-function requestBodyContainsSingle(ctx, param) {
+function bodyGetSingle(ctx, param) {
+  return ctx.request.body[param];
+}
+
+function bodyContainsSingle(ctx, param) {
   return (ctx.request.body.hasOwnProperty(param));
 }
 
-function requestBodyContainsAll(ctx, params) {
+function bodyContainsAll(ctx, params) {
   let contains = 0;
   params.forEach(function (param) {
-    if (requestBodyContainsSingle(ctx, param)) {
-      contains = contains+1;
+    if (bodyContainsSingle(ctx, param)) {
+      contains++;
     }
   });
   return (contains == params.length);
 }
 
-module.exports.requestBodyContainsSingle = requestBodyContainsSingle;
-module.exports.requestBodyContainsAll = requestBodyContainsAll;
+module.exports.bodyGetSingle = bodyGetSingle;
+module.exports.bodyContainsSingle = bodyContainsSingle;
+module.exports.bodyContainsAll = bodyContainsAll;
